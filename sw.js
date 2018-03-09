@@ -1,7 +1,7 @@
 const CACHE_NAME = 'pwa-demo-edteam-cache-v1'
 urlsToCache = [
     '/',
-    './',
+    // './',
     './?utm=homescreen',
     './index.html',
     './index.html/?utm=homescreen',
