@@ -1,8 +1,9 @@
 const CACHE_NAME = 'pwa-demo-edteam-cache-v1'
 let baseUrl = 'https://rodr7go.github.io/progressive-web/';
 urlsToCache = [
-    // '/',
-    // './',
+    'https://controlmas.mx',
+    '/',
+    './',
     './?utm=homescreen',
     './index.html',
     './index.html/?utm=homescreen',
