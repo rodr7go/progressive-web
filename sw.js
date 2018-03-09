@@ -1,8 +1,8 @@
 const CACHE_NAME = 'pwa-demo-edteam-cache-v1'
 let baseUrl = 'https://rodr7go.github.io/progressive-web/';
 urlsToCache = [
-    '/',
-    './',
+    // '/',
+    // './',
     './?utm=homescreen',
     './index.html',
     './index.html/?utm=homescreen',
@@ -10,14 +10,6 @@ urlsToCache = [
     './script.js',
     './sw.js',
     './favicon.ico',
-    // baseUrl,
-    // baseUrl + '?utm=homescreen',
-    // baseUrl + 'index.html',
-    // baseUrl + 'index.html/?utm=homescreen',
-    // baseUrl + 'style.css',
-    // baseUrl + 'script.js',
-    // baseUrl + 'sw.js',
-    // baseUrl + 'favicon.ico',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
 ]
 self.addEventListener('install', e =>  {
