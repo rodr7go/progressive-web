@@ -64,3 +64,42 @@ self.addEventListener('fetch', e => {
       })
     )
 })
+
+self.addEventListener('push', e => {
+    console.log('Evento push')
+    let title = 'Push notificacion demo',
+    options = {
+        body: 'clic para regresar a la aplicacion',
+        icon: 'img/icon_192x192.png',
+        vibrate: [100, 50, 100],
+        date: {
+            id:1
+        },
+        actions: [
+            {
+                'action': 'Si',
+                'title': 'Amo esta aplicacion :)',
+                icon: 'img/icon_192x192.png'
+            },
+            {
+                'action': 'No',
+                'title': 'No me gusta esta aplicacion :(',
+                icon: 'img/icon_192x192.png'
+            }
+        ]
+    }
+    e.waitUntil( self.registration.showNotification(title, options))
+})
+
+self.addEventListener('notificationclick', e => {
+    console.log(e)
+
+    if (e.action == 'Si') {
+        console.log('Amo esta aplicacion')
+        clients.openWindow('http://dcsol.net')
+    } else if (e.action == 'No') {
+        console.log('no me gusta esta aplicacion')
+    }
+
+    e.notification.close()
+})
