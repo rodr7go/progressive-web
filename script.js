@@ -15,15 +15,15 @@ if ( 'serviceWorker' in navigator ) {
 if ( window.Notification && Notification.permission !== 'denied' ) {
     Notification.requestPermission(status => {
         console.log(status)
-
-        let n = new Notification('Titulo', {
-            body: 'Soy una notificacion',
-            icon: '/img/icon_192x192.png'
-        })
-
-        n.onclick = () => {
-          // alert('hola prro')
-          window.open('https://controlmas.mx')
-        };
+        setTimeout(function(){
+            let n = new Notification('Titulo', {
+                body: 'Soy una notificacion',
+                icon: '/img/icon_192x192.png'
+            })
+            .onclick = () => {
+              // alert('hola prro')
+              window.open('https://controlmas.mx')
+            };
+        },10000)
     })
 }
