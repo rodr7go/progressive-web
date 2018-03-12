@@ -103,3 +103,27 @@ self.addEventListener('notificationclick', e => {
 
     e.notification.close()
 })
+
+self.addEventListener('sync', e => {
+    console.log('Evento sincronizacion de fondo', e)
+
+    // REvisamos que la etiqueta de sincronizacoin sea la que definimos o la que emulan las devtools
+    if (e.tag === 'github' || e.tag === 'test-tag-from-devtools') {
+        e.waitUntil(
+            // Comprobamos todas las pestañas abiertas y les enviamos postMessage
+            self.clients.matchAll()
+                .then(all => {
+                    return all.map(client => {
+                        return client.postMessage('online')
+                    })
+                })
+                .catch(err => console-log(err))
+        )
+    }
+    
+})
+
+// self.addEventListener('message', e => {
+//     console.log('Desde la sincronizacion de fondo', e.data)
+//     fetchGitHubUser(localStorage.getItem('github'), true)
+// })
