@@ -19,23 +19,20 @@
 
     // Activar Notificaciones
     if ( w.Notification && Notification.permission !== 'denied' ) {
+
         setTimeout(function () {
-            let n = new Notification('Titulo', {
-                body: 'Soy una notificacion',
-                icon: '/img/icon_192x192.png'
+            Notification.requestPermission(status => {
+                c(status, 'status')
+                let n = new Notification('Titulo', {
+                    body: 'Soy una notificacion',
+                    icon: '/img/icon_192x192.png'
+                })
+                .onclick = () => {
+                  // alert('hola prro')
+                  w.open('https://controlmas.mx')
+                };
             })
         }, 3000)
-        // Notification.requestPermission(status => {
-        //     c(status, 'status')
-        //     let n = new Notification('Titulo', {
-        //         body: 'Soy una notificacion',
-        //         icon: '/img/icon_192x192.png'
-        //     })
-        //     .onclick = () => {
-        //       // alert('hola prro')
-        //       w.open('https://controlmas.mx')
-        //     };
-        // })
     }
 
     // Activar sincronizacion de fondo - segundo plano
