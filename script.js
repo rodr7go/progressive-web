@@ -19,9 +19,8 @@
 
     // Activar Notificaciones
     if ( w.Notification && Notification.permission !== 'denied' ) {
-
         Notification.requestPermission(status => {
-            c(status, 'status')
+            c(status)
             let n = new Notification('Titulo', {
                 body: 'Soy una notificacion',
                 icon: '/img/icon_192x192.png'
